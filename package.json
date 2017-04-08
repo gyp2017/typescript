@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "GimYoungPhil <youngphil.gim@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc -w"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.3.0",
+    "typescript": "^2.2.2"
+  }
 }
