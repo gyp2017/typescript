@@ -5,7 +5,8 @@
   "author": "GimYoungPhil <youngphil.gim@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc -w"
+    "tsc": "tsc -w",
+    "server": "lite-server -c config.json"
   },
   "dependencies": {},
   "devDependencies": {

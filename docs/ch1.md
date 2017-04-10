@@ -23,7 +23,7 @@ node_modules/
 
 ### 타입스크립트 설치
 ```shell
-$ npm install typescript --dev
+$ npm install typescript --save-dev
 or
 $ yarn add typescript --dec
 ```
@@ -32,7 +32,7 @@ package.json 파일이 변경된다.
 
 ### 서버 설치
 ```shell
-$ npm install lite-server --dev
+$ npm install lite-server --save-dev
 or
 $ yarn add lite-server --dec
 ```
