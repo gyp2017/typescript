@@ -1,13 +1,20 @@
-var container = document.getElementById('container');
+var o = {
+  name: 'gim',
+  age: 33,
+  hobby: ['draw', 'music', 'movie', 12]
+};
 
-function countdown({ initial: current, final: final = 0, interval: interval = 1 }) {
+var a = [];
 
-  while (current > final) {
-    container.innerHTML = current;
-    current -= interval;
-  }
+var f = function () {};
+
+o.name = 33;
+console.log(typeof o);
+console.log(typeof a);
+console.log(typeof f);
+
+function totalLength(x, y) {
+  var total = x.length + y.length; return total;
 }
 
-countdown({
-  initial: 10
-})
+var result = totalLength({}, [1,2,3,4]);

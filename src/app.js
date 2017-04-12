@@ -1,11 +1,10 @@
-var container = document.getElementById('container');
-function countdown(_a) {
-    var current = _a.initial, _b = _a.final, final = _b === void 0 ? 0 : _b, _c = _a.interval, interval = _c === void 0 ? 1 : _c;
-    while (current > final) {
-        container.innerHTML = current;
-        current -= interval;
-    }
-}
-countdown({
-    initial: 10
-});
+var o = {
+    name: 'gim',
+    age: 33,
+    hobby: ['draw', 'music', 'movie', 12]
+};
+var a = [];
+var f = function () { };
+console.log(typeof o.aa);
+console.log(typeof a);
+console.log(typeof f);
