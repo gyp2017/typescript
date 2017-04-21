@@ -15,3 +15,15 @@ var savedIdol = myEl.data('idol');
 console.log(savedIdol);
 myEl.idol(idol);
 // element.todo(todo);
+var IdolState;
+(function (IdolState) {
+    IdolState[IdolState["Rookie"] = 0] = "Rookie";
+    IdolState[IdolState["Active"] = 1] = "Active";
+    IdolState[IdolState["Break"] = 2] = "Break";
+    IdolState[IdolState["Retirement"] = 3] = "Retirement";
+})(IdolState || (IdolState = {}));
+function deleteIdol(idol) {
+    if (idol.state != IdolState.Rookie) {
+        throw "Can't delete incomplete task!";
+    }
+}

@@ -1,8 +1,15 @@
 // Defining custom types with Interfaces
 interface Idol {
   name: string;
-  active?: boolean;
+  state?: IdolState;
 }
+
+/*
+Rookie = 1
+Active = 2
+Break = 3
+Retirement = 4
+*/
 
 // var idol: Idol = {
 //   name: '사나'
@@ -51,3 +58,16 @@ console.log(savedIdol);
 
 myEl.idol(idol);
 // element.todo(todo);
+
+enum IdolState {
+  Rookie,
+  Active,
+  Break,
+  Retirement
+}
+
+function deleteIdol(idol: Idol) {
+  if (idol.state != IdolState.Rookie) {
+    throw "Can't delete incomplete task!"
+  }
+}
