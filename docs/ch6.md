@@ -118,3 +118,131 @@ interface IIdolService {
   getById(idolId: string): Idol;
 }
 ```
+
+## Using interfaces to describe functions
+함수를 설명하는 interface
+
+동적 언어인 자바스크립트에서 함수는 다음과 같이 변수에 할당할 수 있다.
+```js
+var $ = function(selector) {
+  // Find DOM element
+}
+```
+
+함수도 객체이기 때문에 프로퍼티와 메서드를 가질 수 있다.
+```js
+var $ = function(selector) {
+  // Find DOM element
+}
+$.version = 1.12;
+```
+
+우선, interface에 number 타입의 `version` 프로퍼티를 선언하다.
+```js
+interface jQuery {
+  version: number;
+}
+```
+
+자신의 함수를 정의하기 위해 이름이 없는 함수 프로퍼티를 추가한다.
+이름은 없지만 파라메터와 리턴 값은 지정한다.
+```js
+interface jQuery {
+  (selector: string): HTMLElement;
+  version: number;
+}
+```
+
+캐스팅 문법으로 함수에 적용한다.
+```js
+var $ = <jQuery>function(selector) {
+
+}
+
+var element = $('#container');
+```
+
+## Extending interface definitions
+메소드와 프로퍼티를 추가해서 객체를 확장하는 방법
+
+jQueryElement를 반환하도록 수정한다.
+```js
+interface jQuery {
+  (selector: (string | any)): jQueryElement;
+  fn: any;
+  version: number;
+}
+```
+
+jQueryElement는 HTML DOM에 데이터를 할당하거나 추출하는 `data()` 메소드가 있다.
+```js
+interface jQueryElement {
+  data(name: string): any;
+  data(name: string, data: any): jQueryElement; 
+}
+```
+
+다음과 같이 사용한다.
+```js
+var idol = { name: '모모' };
+var myEl = $('#my-idol');
+myEl.data('idol', idol);
+var savedIdol = myEl.data('idol');
+```
+
+jQuery는 `fn` 프로퍼티에 새로운 함수를 추가해서 API를 확장하도록 허용한다.
+```js
+$.fn.idol = function(idol?: Idol) {
+  if (idol) {
+    $(this).data('idol', idol)
+  } else {
+    return $(this).data('idol');
+  } 
+}
+```
+
+```js
+element.idol(idol);
+```
+
+`jQueryElement` interface에 `idol` 메서드를 추가한다.
+```js
+interface jQueryElement {
+  data(name: string): any;
+  data(name: string, data: any): jQueryElement;
+
+  idol(): Idol;
+  idol(idol: Idol): jQueryElement;
+}
+```
+
+jQuery는 써드 파티 라이브러리로 직접 구현한 것이 아니기 때문에 interface를 직접 확장하기는 좋지 않다. TypeScript는 원본 정의의 변경 없이 확장이 가능하다. jQuery의 interface에 변경 대신에 같은 이름의 새로운 interface를 만들 수 있다.
+```js
+interface jQueryElement {
+  data(name: string): any;
+  data(name: string, data: any): jQueryElement;
+
+  idol(): Idol;
+  idol(idol: Idol): jQueryElement;
+}
+
+interface jQueryElement {
+}
+```
+
+새로운 interface로 커스텀 메서드를 이동한다. 원래 jQuery interface는 유지한다.
+```js
+interface jQueryElement {
+  data(name: string): any;
+  data(name: string, data: any): jQueryElement;
+}
+
+interface jQueryElement {
+  idol(): Idol;
+  idol(idol: Idol): jQueryElement;
+}
+```
+
+`data`, `idol` 메서드를 모두 볼 수 있다.
+
+
