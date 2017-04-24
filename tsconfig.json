@@ -1,4 +1,7 @@
 {
+  "files": [
+    "src/ch7-5.ts"
+  ],
   "compilerOptions": {
     "target": "es5"
   }

@@ -50,13 +50,13 @@ $.fn.idol = function(idol?: Idol) {
   } 
 }
 
-var idol = { name: '모모' };
-var myEl = $('#my-idol');
-myEl.data('idol', idol);
-var savedIdol = myEl.data('idol');
-console.log(savedIdol);
+// var idol = { name: '모모' };
+// var myEl = $('#my-idol');
+// myEl.data('idol', idol);
+// var savedIdol = myEl.data('idol');
+// console.log(savedIdol);
 
-myEl.idol(idol);
+// myEl.idol(idol);
 // element.todo(todo);
 
 enum IdolState {
@@ -70,4 +70,17 @@ function deleteIdol(idol: Idol) {
   if (idol.state != IdolState.Rookie) {
     throw "Can't delete incomplete task!"
   }
+}
+
+// var idol: { name: string };
+// idol = { age: 20 };
+
+function totalLength1(x: (string | any[]), y: (string | any[])): number {
+  var total: number = x.length + y.length;
+  return total;
+}
+
+function totalLength2(x: { length: number }, y: { length: number }) {
+  var total: number = x.length + y.length;
+  return total;
 }
