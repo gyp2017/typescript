@@ -11,7 +11,7 @@ enum IdolState {
 }
 
 class IdolStateChanger {
-  
+
   constructor(private newState: IdolState) {
   }
 
@@ -26,3 +26,18 @@ class IdolStateChanger {
     return idol;
   }
 }
+
+class RetirementIdolStateChanger extends IdolStateChanger {
+
+  constructor() {
+    super(IdolState.Retirement);
+  }
+
+  canChangeState(idol: Idol): boolean {
+    return super.canChangeState(idol) && (
+      idol.state == IdolState.Active ||
+      idol.state == IdolState.Retirement);
+  }
+}
+
+var changer = new RetirementIdolStateChanger();

@@ -1,6 +1,6 @@
 {
   "files": [
-    "src/ch7-5.ts"
+    "src/ch8/section3.ts"
   ],
   "compilerOptions": {
     "target": "es5"

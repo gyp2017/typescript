@@ -29,15 +29,6 @@ var idol = {
   }
 }
 
-console.log(idol.name);
-console.log(idol.state);
-idol.state = IdolState.Rookie;
-console.log(idol.state);
-idol.state = IdolState.Active;
-console.log(idol.state);
-idol.state = IdolState.Retirement;
-console.log(idol.state);
-
 class SmartIdol {
   name: string;
   _state: IdolState;
