@@ -2,7 +2,7 @@
   "port": 8000,
   "files": [
     "./*.{html}",
-    "./src/*.{css,js}"
+    "./src/**/*.{js,css}"
   ],
   "server": { "baseDir": "./" }
 }

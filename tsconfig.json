@@ -1,8 +1,9 @@
 {
   "files": [
-    "src/ch8/section3.ts"
+    "src/ch9/section7/app.ts"
   ],
   "compilerOptions": {
-    "target": "es5"
+    "target": "es5",
+    "module": "system"
   }
 }
