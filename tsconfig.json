@@ -1,6 +1,6 @@
 {
   "files": [
-    "src/ch9/section7/app.ts"
+    "quest/q3.ts"
   ],
   "compilerOptions": {
     "target": "es5",

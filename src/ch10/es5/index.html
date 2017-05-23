@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-5">TodoList</h1>
+      <div class="card">
+        <h3 class="card-header">Featured</h3>
+        <ul class="list-group list-group-flush todo-list">
+        </ul>
+        <div class="card-block">
+          <div class="row">
+            <div class="col-md-10">
+              <form class="add-todo">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span>
+                      <button type="submit" class="btn btn-primary">
+                        Add
+                      </button>
+                    </span>
+                    <input type="text" class="input-lg" placeholder="What" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-primary clear-completed">
+                Clear Completed
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="TodoListComponent.js"></script>
+    <script src="TodoService.js"></script>
+    <script src="TodoApp.js"></script>
+    <script>
+      new TodoApp(document, [
+        'Pick me up',
+        'Clean Batcave',
+        'Save Gotham'
+      ])
+    </script>
+  </body>
+</html>
